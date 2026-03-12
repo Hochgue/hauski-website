@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HausKI – Mein intelligentes Zuhause</title>
-  <meta name="description" content="HausKI ist das persönliche Smart-Home- und Energieprojekt von Günther Hochreiter – mit Home Assistant, Energieüberwachung, Heizungsanalyse, PV-Management, Sicherheitstechnik und smarten Automationen." />
+  <title>HausKI Blog – LinkedIn Tech Stories & Projekt-Updates</title>
+  <meta name="description" content="Der HausKI Blog bündelt LinkedIn Tech Stories, Projekt-Updates, Energieanalysen und Smart-Home-Erkenntnisse von Günther Hochreiter." />
   <style>
     :root {
       --bg: #070b12;
-      --bg2: #0d1523;
       --card: rgba(14, 23, 38, 0.78);
       --line: rgba(79, 195, 247, 0.22);
       --text: #ecf6ff;
@@ -34,7 +33,7 @@
       min-height: 100vh;
     }
 
-    .grid-bg::before {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -74,6 +73,8 @@
       gap: 14px;
       font-weight: 700;
       letter-spacing: 0.3px;
+      text-decoration: none;
+      color: var(--text);
     }
 
     .brand-mark {
@@ -108,29 +109,17 @@
       flex-wrap: wrap;
     }
 
-    .nav-links a,
-    .button,
-    .button-outline {
-      text-decoration: none;
-      color: var(--text);
-    }
-
     .nav-links a {
+      text-decoration: none;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
 
     .hero {
-      padding: 72px 0 42px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: stretch;
+      padding: 72px 0 26px;
     }
 
     .panel {
@@ -141,13 +130,13 @@
       backdrop-filter: blur(10px);
     }
 
-    .hero-main {
+    .hero-panel {
       padding: 38px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-main::after {
+    .hero-panel::after {
       content: "";
       position: absolute;
       width: 360px;
@@ -175,25 +164,25 @@
     }
 
     h1 {
-      font-size: clamp(38px, 6vw, 66px);
-      line-height: 0.95;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 0.98;
       margin: 0 0 18px;
-      letter-spacing: -1.8px;
+      letter-spacing: -1.6px;
     }
 
-    .hero-main p {
-      margin: 0;
+    .hero-panel p,
+    .section-head p,
+    .article p,
+    .sidebar-card p {
       color: var(--muted);
-      font-size: 18px;
       line-height: 1.7;
-      max-width: 60ch;
     }
 
-    .cta-row {
+    .button-row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .button,
@@ -206,7 +195,8 @@
       padding: 0 18px;
       border-radius: 14px;
       font-weight: 700;
-      transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .button {
@@ -227,88 +217,9 @@
       opacity: 0.96;
     }
 
-    .hero-side {
-      padding: 22px;
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 16px;
-    }
+    section { padding: 18px 0 0; }
 
-    .mini-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-      color: var(--muted);
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .stat {
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      padding: 16px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 26px;
-      color: var(--accent);
-      margin-top: 8px;
-    }
-
-    .system-card {
-      border-radius: 18px;
-      border: 1px solid rgba(106,240,199,0.16);
-      background: linear-gradient(180deg, rgba(106,240,199,0.06), rgba(255,255,255,0.02));
-      padding: 18px;
-    }
-
-    .system-card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-
-    .list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .list span:last-child {
-      color: var(--text);
-      white-space: nowrap;
-    }
-
-    section {
-      padding: 18px 0 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-      margin-bottom: 18px;
-    }
+    .section-head { margin-bottom: 18px; }
 
     h2 {
       margin: 0;
@@ -316,25 +227,19 @@
       letter-spacing: -1px;
     }
 
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      max-width: 64ch;
-      line-height: 1.7;
-    }
-
-    .cards {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .card {
+    .card,
+    .sidebar-card,
+    .article {
       padding: 24px;
-      min-height: 235px;
     }
 
-    .card .icon {
+    .icon {
       width: 52px;
       height: 52px;
       display: grid;
@@ -346,63 +251,64 @@
       font-size: 22px;
     }
 
-    .card h3 {
+    .card h3,
+    .sidebar-card h3,
+    .article h3 {
       margin: 0 0 10px;
       font-size: 22px;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .architecture {
+    .blog-layout {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 18px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      align-items: start;
     }
 
-    .arch-box {
-      padding: 22px;
-      min-height: 180px;
+    .article-list {
+      display: grid;
+      gap: 18px;
     }
 
-    .arch-box small {
+    .meta {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
       color: var(--accent-2);
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 12px;
+      margin-bottom: 10px;
     }
 
-    .arch-box h3 {
-      margin: 10px 0 8px;
-      font-size: 22px;
+    .article p { margin: 0 0 18px; }
+
+    .article a,
+    .sidebar-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
     }
 
-    .arch-box p {
-      margin: 0;
+    .sidebar {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .quote {
-      margin-top: 18px;
-      padding: 26px;
-      font-size: clamp(20px, 3vw, 28px);
-      line-height: 1.5;
-      letter-spacing: -0.5px;
-    }
-
-    .quote span {
-      display: block;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 15px;
-      letter-spacing: 0;
+      font-size: 13px;
     }
 
     .footer {
@@ -421,16 +327,14 @@
     }
 
     @media (max-width: 1024px) {
-      .hero-wrap,
-      .cards,
-      .architecture {
+      .grid-3,
+      .blog-layout {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 640px) {
       .nav-inner,
-      .section-head,
       .footer-wrap {
         align-items: flex-start;
       }
@@ -440,177 +344,158 @@
         padding: 14px 0;
       }
 
-      .hero-main,
-      .hero-side,
+      .hero-panel,
       .card,
-      .arch-box,
-      .quote {
+      .sidebar-card,
+      .article {
         padding: 20px;
       }
 
-      .stat-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-row {
+      .button-row {
         flex-direction: column;
       }
 
       .button,
-      .button-outline {
-        width: 100%;
-      }
+      .button-outline { width: 100%; }
     }
   </style>
 </head>
-<body class="grid-bg">
+<body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">
+      <a class="brand" href="index.html">
         <div class="brand-mark">⌂</div>
         <div>
           <small>Smart Home • Energie • Automation</small>
           <strong>HausKI</strong>
         </div>
-      </div>
+      </a>
       <div class="nav-links">
-        <a href="#module">Module</a>
-        <a href="/architektur">Architektur</a>
-        <a href="/blog">Blog</a>
-        <a href="/roadmap">Roadmap</a>
-        <a href="/dashboard">Live Dashboard</a>
-        <a href="/about">Über mich</a>
-        <a href="mailto:office@g-hochreiter.at">Kontakt</a>
+        <a href="index.html">Startseite</a>
+        <a href="architektur.html">Architektur</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="about.html">Über mich</a>
       </div>
     </div>
   </nav>
 
   <header class="hero container">
-    <div class="hero-wrap">
-      <div class="panel hero-main">
-        <div class="eyebrow">Zentrale Plattform: Home Assistant</div>
-        <h1>Das intelligente Zuhause von Günther Hochreiter.</h1>
-        <p>
-          HausKI ist mehr als Smart Home. Es verbindet Energieüberwachung, Heizungsanalyse,
-          PV-Management, Sicherheitstechnik und Automationen zu einem System, das das Haus
-          nicht nur steuert, sondern versteht.
-        </p>
-        <div class="cta-row">
-          <a class="button" href="#module">HausKI entdecken</a>
-          <a class="button-outline" href="/blog">Blog ansehen</a>
-          <a class="button-outline" href="/dashboard">Live Dashboard</a>
-        </div>
+    <div class="panel hero-panel">
+      <div class="eyebrow">LinkedIn Tech Stories • HausKI Blog</div>
+      <h1>Projekt‑Updates, Energie‑Insights und technische Gedanken zu HausKI.</h1>
+      <p>
+        Diese Seite ist die inhaltliche Erweiterung deiner HausKI Startseite. Hier bündelst du LinkedIn‑Beiträge,
+        Projektfortschritte, Energieanalysen und technische Learnings in einer klaren Struktur.
+      </p>
+      <div class="button-row">
+        <a class="button" href="https://www.linkedin.com/in/g%C3%BCnther-hochreiter-66b6a8184/" target="_blank">Mein LinkedIn Profil</a>
+        <a class="button-outline" href="index.html">Zur Startseite</a>
       </div>
-
-      <aside class="panel hero-side">
-        <div class="mini-label">Systemstatus • HausKI Vision</div>
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="mini-label">Kernmodule</div>
-            <strong>5</strong>
-          </div>
-          <div class="stat">
-            <div class="mini-label">Zentrale</div>
-            <strong>HA</strong>
-          </div>
-        </div>
-        <div class="system-card">
-          <h3>Aktuelle Schwerpunkte</h3>
-          <ul class="list">
-            <li><span>⚡ Energiefluss überwachen</span><span>Live</span></li>
-            <li><span>🔥 Heizungsverhalten analysieren</span><span>Aktiv</span></li>
-            <li><span>☀️ PV & Eigenverbrauch optimieren</span><span>Laufend</span></li>
-            <li><span>🔒 Sicherheit & Kameralogik</span><span>In Ausbau</span></li>
-          </ul>
-        </div>
-      </aside>
     </div>
   </header>
 
   <main class="container">
-    <section id="module">
+    <section>
       <div class="section-head">
-        <div>
-          <h2>Die Hauptbestandteile von HausKI</h2>
-          <p>
-            Alle Bereiche greifen ineinander. Ziel ist nicht nur Komfort, sondern ein technisch
-            sauberes, nachvollziehbares und lernfähiges Gesamtsystem für Alltag, Energie und Sicherheit.
-          </p>
-        </div>
+        <h2>Blog-Bereiche</h2>
+        <p>So kannst du deine Inhalte strukturieren: kurze Projekt-Updates, tiefere Technikbeiträge und LinkedIn-Storys rund um HausKI.</p>
       </div>
-
-      <div class="cards">
+      <div class="grid-3">
         <article class="panel card">
-          <div class="icon">⚡</div>
-          <h3>Energieüberwachung</h3>
-          <p>
-            Visualisierung von Hausverbrauch, Netzbezug, Einspeisung und Lastspitzen. Die Datenbasis schafft Transparenz
-            und ist die Grundlage für jede echte Optimierung.
-          </p>
+          <div class="icon">📝</div>
+          <h3>Projekt-Updates</h3>
+          <p>Kleine Fortschritte, neue Geräte, Automationen, Dashboards und technische Umbauten können hier schnell dokumentiert werden.</p>
         </article>
-
         <article class="panel card">
-          <div class="icon">🔥</div>
-          <h3>Heizungsanalyse</h3>
-          <p>
-            HausKI analysiert Betriebsverhalten, Ansaugzyklen und Zusammenhänge mit Außentemperatur und Nutzung,
-            damit aus Rohdaten echte Erkenntnisse werden.
-          </p>
+          <div class="icon">📊</div>
+          <h3>Energie & Analyse</h3>
+          <p>Beiträge über PV, Eigenverbrauch, Heizungsverhalten, Lastspitzen und Optimierungen zeigen die technische Tiefe von HausKI.</p>
         </article>
-
         <article class="panel card">
-          <div class="icon">☀️</div>
-          <h3>PV-Management</h3>
-          <p>
-            Fokus auf Eigenverbrauch, Lastverschiebung und sinnvolle Nutzung der erzeugten Energie. Ziel ist ein Haus,
-            das Energieflüsse aktiv mitdenkt.
-          </p>
-        </article>
-
-        <article class="panel card">
-          <div class="icon">🔒</div>
-          <h3>Sicherheitstechnik</h3>
-          <p>
-            Kamera-Logik, Türstatus, Benachrichtigungen und Anwesenheitserkennung werden intelligent verknüpft,
-            um Sicherheit ohne unnötigen Alarm-Stress zu schaffen.
-          </p>
-        </article>
-
-        <article class="panel card">
-          <div class="icon">🏠</div>
-          <h3>Smarte Automationen</h3>
-          <p>
-            Licht, Temperatur, Präsenz und Geräteverhalten werden nicht isoliert betrachtet, sondern als Teil eines
-            lebendigen Systems, das den Alltag wirklich unterstützt.
-          </p>
-        </article>
-
-        <article class="panel card">
-          <div class="icon">🤖</div>
-          <h3>HausKI 2.0</h3>
-          <p>
-            Die Vision: ein eigenes Agentensystem rund um Energie, Heizung, Hausstatus und Erklärungen – eng verbunden
-            mit Home Assistant und einer klaren technischen Architektur.
-          </p>
+          <div class="icon">🚀</div>
+          <h3>LinkedIn Story-Serie</h3>
+          <p>Hier spiegelst du deine stärksten LinkedIn Themen und gibst ihnen auf deiner eigenen Plattform ein dauerhaftes Zuhause.</p>
         </article>
       </div>
     </section>
 
-    <section id="vision">
+    <section>
       <div class="section-head">
-        <div>
-          <h2>Die Idee hinter HausKI</h2>
-          <p>
-            Smarthome ist nicht nur Licht an und aus. Für mich ist es die technische Weiterentwicklung eines Hauses,
-            das Energie, Komfort, Sicherheit und Verständnis zusammenbringt.
-          </p>
-        </div>
+        <h2>Beispielartikel</h2>
+        <p>Diese Karten sind als Startstruktur gedacht. Später kannst du jede davon auf eine eigene Detailseite verlinken.</p>
       </div>
 
-      <div class="panel quote">
-        „Ein intelligentes Zuhause ist für mich kein Sammelsurium aus Geräten, sondern ein System, das Daten sinnvoll nutzt,
-        Zusammenhänge erkennt und den Alltag technisch besser macht.“
-        <span>– Günther Hochreiter</span>
+      <div class="blog-layout">
+        <div class="article-list">
+          <article class="panel article">
+            <div class="meta">Artikel 01 • Grundidee</div>
+            <h3>HausKI ist mehr als Smart Home</h3>
+            <p>
+              Warum ein intelligentes Zuhause für dich nicht aus Einzelgeräten besteht, sondern aus einem System,
+              das Energie, Komfort, Sicherheit und Verständnis zusammenführt.
+            </p>
+            <a href="#">Artikel später öffnen →</a>
+          </article>
+
+          <article class="panel article">
+            <div class="meta">Artikel 02 • Visualisierung</div>
+            <h3>Dashboard statt Bauchgefühl</h3>
+            <p>
+              Wie Visualisierung und Live-Daten helfen, technische Entscheidungen sauber zu treffen und den Zustand
+              eines Hauses wirklich zu verstehen.
+            </p>
+            <a href="#">Artikel später öffnen →</a>
+          </article>
+
+          <article class="panel article">
+            <div class="meta">Artikel 03 • Zukunft</div>
+            <h3>HausKI 2.0 – Wenn das Haus beginnt mitzureden</h3>
+            <p>
+              Die Vision eines Systems, das nicht nur misst und darstellt, sondern Muster erkennt, erklärt und künftig
+              Empfehlungen für Energie, Heizung und Hausstatus gibt.
+            </p>
+            <a href="#">Artikel später öffnen →</a>
+          </article>
+        </div>
+
+        <aside class="sidebar">
+          <div class="panel sidebar-card">
+            <h3>LinkedIn Anbindung</h3>
+            <p>
+              Jeder neue LinkedIn Beitrag kann hier als Kurzfassung mit Link, Bild und erweitertem Hintergrund erscheinen.
+            </p>
+            <a href="https://www.linkedin.com/in/g%C3%BCnther-hochreiter-66b6a8184/" target="_blank">Zu LinkedIn →</a>
+          </div>
+
+          <div class="panel sidebar-card">
+            <h3>Themenfelder</h3>
+            <p>Diese Schwerpunkte passen ideal zu deiner Tech-Marke rund um HausKI.</p>
+            <div class="tag-list">
+              <span class="tag">Home Assistant</span>
+              <span class="tag">Energie</span>
+              <span class="tag">PV</span>
+              <span class="tag">Heizung</span>
+              <span class="tag">Automationen</span>
+              <span class="tag">Sicherheit</span>
+              <span class="tag">HausKI 2.0</span>
+            </div>
+          </div>
+
+          <div class="panel sidebar-card">
+            <h3>Ausbaustufe</h3>
+            <p>
+              Später können hier echte Artikelseiten entstehen, z. B.:
+              <br><br>
+              <strong>/blog/hauski-ist-mehr-als-smart-home</strong>
+              <br>
+              <strong>/blog/dashboard-statt-bauchgefuehl</strong>
+              <br>
+              <strong>/blog/hauski-2-0</strong>
+            </p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -618,7 +503,7 @@
   <footer class="footer">
     <div class="container footer-wrap">
       <div>© 2026 HausKI • Günther Hochreiter</div>
-      <div>Zentrale Plattform: Home Assistant • Deployment: Vercel • Domain: g-hochreiter.at</div>
+      <div>Blogseite • LinkedIn Tech Stories • g-hochreiter.at</div>
     </div>
   </footer>
 </body>
