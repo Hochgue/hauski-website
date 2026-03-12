@@ -1,510 +1,109 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HausKI Blog – LinkedIn Tech Stories & Projekt-Updates</title>
-  <meta name="description" content="Der HausKI Blog bündelt LinkedIn Tech Stories, Projekt-Updates, Energieanalysen und Smart-Home-Erkenntnisse von Günther Hochreiter." />
-  <style>
-    :root {
-      --bg: #070b12;
-      --card: rgba(14, 23, 38, 0.78);
-      --line: rgba(79, 195, 247, 0.22);
-      --text: #ecf6ff;
-      --muted: #9db2c9;
-      --accent: #21c8ff;
-      --accent-2: #6af0c7;
-      --glow: 0 0 0 1px rgba(33, 200, 255, 0.12), 0 0 28px rgba(33, 200, 255, 0.12);
-      --radius: 22px;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
-      --maxw: 1180px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HausKI – Seite im Aufbau</title>
+<style>
+:root{
+--bg:#070b12;
+--accent:#21c8ff;
+--text:#ecf6ff;
+--muted:#9db2c9;
+}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(33,200,255,0.16), transparent 24%),
-        radial-gradient(circle at 80% 0%, rgba(106,240,199,0.10), transparent 20%),
-        linear-gradient(180deg, #050911 0%, #0a111d 48%, #060a11 100%);
-      min-height: 100vh;
-    }
+body{
+margin:0;
+font-family:Inter,Arial,Helvetica,sans-serif;
+background:linear-gradient(180deg,#050911,#0a111d);
+color:var(--text);
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-      mask-image: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.08));
-    }
+.container{
+text-align:center;
+max-width:700px;
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(14,23,38,0.8);
+box-shadow:0 20px 60px rgba(0,0,0,0.35);
+}
 
-    .container {
-      width: min(var(--maxw), calc(100% - 32px));
-      margin: 0 auto;
-    }
+.logo{
+font-size:22px;
+margin-bottom:10px;
+letter-spacing:1px;
+color:var(--accent);
+}
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(5, 10, 18, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
+h1{
+font-size:40px;
+margin:10px 0 20px;
+}
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      min-height: 74px;
-    }
+p{
+color:var(--muted);
+line-height:1.7;
+font-size:18px;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-decoration: none;
-      color: var(--text);
-    }
+.status{
+margin-top:30px;
+font-size:14px;
+color:var(--muted);
+}
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(33,200,255,0.22), rgba(106,240,199,0.14));
-      border: 1px solid rgba(33,200,255,0.28);
-      display: grid;
-      place-items: center;
-      box-shadow: var(--glow);
-      font-size: 18px;
-    }
-
-    .brand small {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 500;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 17px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--text); }
-
-    .hero {
-      padding: 72px 0 26px;
-    }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow), var(--glow);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-panel {
-      padding: 38px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      right: -120px;
-      top: -120px;
-      background: radial-gradient(circle, rgba(33,200,255,0.18), transparent 65%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      color: var(--accent);
-      border: 1px solid rgba(33,200,255,0.2);
-      background: rgba(33,200,255,0.08);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 0.98;
-      margin: 0 0 18px;
-      letter-spacing: -1.6px;
-    }
-
-    .hero-panel p,
-    .section-head p,
-    .article p,
-    .sidebar-card p {
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .button,
-    .button-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .button {
-      background: linear-gradient(135deg, var(--accent), #1da1ff);
-      color: #04111b;
-      box-shadow: 0 10px 30px rgba(33,200,255,0.28);
-    }
-
-    .button-outline {
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .button:hover,
-    .button-outline:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
-    section { padding: 18px 0 0; }
-
-    .section-head { margin-bottom: 18px; }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 40px);
-      letter-spacing: -1px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card,
-    .sidebar-card,
-    .article {
-      padding: 24px;
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: rgba(33,200,255,0.10);
-      border: 1px solid rgba(33,200,255,0.20);
-      margin-bottom: 18px;
-      font-size: 22px;
-    }
-
-    .card h3,
-    .sidebar-card h3,
-    .article h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .blog-layout {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .article-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .meta {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      color: var(--accent-2);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .article p { margin: 0 0 18px; }
-
-    .article a,
-    .sidebar-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .sidebar {
-      display: grid;
-      gap: 18px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer {
-      padding: 36px 0 60px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 22px;
-    }
-
-    @media (max-width: 1024px) {
-      .grid-3,
-      .blog-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner,
-      .footer-wrap {
-        align-items: flex-start;
-      }
-
-      .nav-inner {
-        flex-direction: column;
-        padding: 14px 0;
-      }
-
-      .hero-panel,
-      .card,
-      .sidebar-card,
-      .article {
-        padding: 20px;
-      }
-
-      .button-row {
-        flex-direction: column;
-      }
-
-      .button,
-      .button-outline { width: 100%; }
-    }
-  </style>
+.linkedin{
+display:inline-block;
+margin-top:25px;
+padding:12px 20px;
+border-radius:12px;
+background:linear-gradient(135deg,var(--accent),#1da1ff);
+color:#04111b;
+text-decoration:none;
+font-weight:700;
+}
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <div class="brand-mark">⌂</div>
-        <div>
-          <small>Smart Home • Energie • Automation</small>
-          <strong>HausKI</strong>
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Startseite</a>
-        <a href="architektur.html">Architektur</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="about.html">Über mich</a>
-      </div>
-    </div>
-  </nav>
 
-  <header class="hero container">
-    <div class="panel hero-panel">
-      <div class="eyebrow">LinkedIn Tech Stories • HausKI Blog</div>
-      <h1>Projekt‑Updates, Energie‑Insights und technische Gedanken zu HausKI.</h1>
-      <p>
-        Diese Seite ist die inhaltliche Erweiterung deiner HausKI Startseite. Hier bündelst du LinkedIn‑Beiträge,
-        Projektfortschritte, Energieanalysen und technische Learnings in einer klaren Struktur.
-      </p>
-      <div class="button-row">
-        <a class="button" href="https://www.linkedin.com/in/g%C3%BCnther-hochreiter-66b6a8184/" target="_blank">Mein LinkedIn Profil</a>
-        <a class="button-outline" href="index.html">Zur Startseite</a>
-      </div>
-    </div>
-  </header>
+<div class="container">
 
-  <main class="container">
-    <section>
-      <div class="section-head">
-        <h2>Blog-Bereiche</h2>
-        <p>So kannst du deine Inhalte strukturieren: kurze Projekt-Updates, tiefere Technikbeiträge und LinkedIn-Storys rund um HausKI.</p>
-      </div>
-      <div class="grid-3">
-        <article class="panel card">
-          <div class="icon">📝</div>
-          <h3>Projekt-Updates</h3>
-          <p>Kleine Fortschritte, neue Geräte, Automationen, Dashboards und technische Umbauten können hier schnell dokumentiert werden.</p>
-        </article>
-        <article class="panel card">
-          <div class="icon">📊</div>
-          <h3>Energie & Analyse</h3>
-          <p>Beiträge über PV, Eigenverbrauch, Heizungsverhalten, Lastspitzen und Optimierungen zeigen die technische Tiefe von HausKI.</p>
-        </article>
-        <article class="panel card">
-          <div class="icon">🚀</div>
-          <h3>LinkedIn Story-Serie</h3>
-          <p>Hier spiegelst du deine stärksten LinkedIn Themen und gibst ihnen auf deiner eigenen Plattform ein dauerhaftes Zuhause.</p>
-        </article>
-      </div>
-    </section>
+<div class="logo">HausKI</div>
 
-    <section>
-      <div class="section-head">
-        <h2>Beispielartikel</h2>
-        <p>Diese Karten sind als Startstruktur gedacht. Später kannst du jede davon auf eine eigene Detailseite verlinken.</p>
-      </div>
+<h1>Website im Aufbau</h1>
 
-      <div class="blog-layout">
-        <div class="article-list">
-          <article class="panel article">
-            <div class="meta">Artikel 01 • Grundidee</div>
-            <h3>HausKI ist mehr als Smart Home</h3>
-            <p>
-              Warum ein intelligentes Zuhause für dich nicht aus Einzelgeräten besteht, sondern aus einem System,
-              das Energie, Komfort, Sicherheit und Verständnis zusammenführt.
-            </p>
-            <a href="#">Artikel später öffnen →</a>
-          </article>
+<p>
+Die neue HausKI Website wird gerade weiterentwickelt.
 
-          <article class="panel article">
-            <div class="meta">Artikel 02 • Visualisierung</div>
-            <h3>Dashboard statt Bauchgefühl</h3>
-            <p>
-              Wie Visualisierung und Live-Daten helfen, technische Entscheidungen sauber zu treffen und den Zustand
-              eines Hauses wirklich zu verstehen.
-            </p>
-            <a href="#">Artikel später öffnen →</a>
-          </article>
+Hier entstehen neue Inhalte rund um:
+<br><br>
+⚡ Energieanalyse<br>
+🔥 Heizungsoptimierung<br>
+☀️ PV‑Management<br>
+🏠 Smart‑Home Automationen<br>
+🤖 HausKI 2.0
+</p>
 
-          <article class="panel article">
-            <div class="meta">Artikel 03 • Zukunft</div>
-            <h3>HausKI 2.0 – Wenn das Haus beginnt mitzureden</h3>
-            <p>
-              Die Vision eines Systems, das nicht nur misst und darstellt, sondern Muster erkennt, erklärt und künftig
-              Empfehlungen für Energie, Heizung und Hausstatus gibt.
-            </p>
-            <a href="#">Artikel später öffnen →</a>
-          </article>
-        </div>
+<a class="linkedin" href="https://www.linkedin.com/in/g%C3%BCnther-hochreiter-66b6a8184/" target="_blank">
+LinkedIn Updates verfolgen
+</a>
 
-        <aside class="sidebar">
-          <div class="panel sidebar-card">
-            <h3>LinkedIn Anbindung</h3>
-            <p>
-              Jeder neue LinkedIn Beitrag kann hier als Kurzfassung mit Link, Bild und erweitertem Hintergrund erscheinen.
-            </p>
-            <a href="https://www.linkedin.com/in/g%C3%BCnther-hochreiter-66b6a8184/" target="_blank">Zu LinkedIn →</a>
-          </div>
+<div class="status">
+Letztes Update: <span id="update"></span><br>
+© 2026 Günther Hochreiter • g-hochreiter.at
+</div>
 
-          <div class="panel sidebar-card">
-            <h3>Themenfelder</h3>
-            <p>Diese Schwerpunkte passen ideal zu deiner Tech-Marke rund um HausKI.</p>
-            <div class="tag-list">
-              <span class="tag">Home Assistant</span>
-              <span class="tag">Energie</span>
-              <span class="tag">PV</span>
-              <span class="tag">Heizung</span>
-              <span class="tag">Automationen</span>
-              <span class="tag">Sicherheit</span>
-              <span class="tag">HausKI 2.0</span>
-            </div>
-          </div>
+</div>
 
-          <div class="panel sidebar-card">
-            <h3>Ausbaustufe</h3>
-            <p>
-              Später können hier echte Artikelseiten entstehen, z. B.:
-              <br><br>
-              <strong>/blog/hauski-ist-mehr-als-smart-home</strong>
-              <br>
-              <strong>/blog/dashboard-statt-bauchgefuehl</strong>
-              <br>
-              <strong>/blog/hauski-2-0</strong>
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-wrap">
-      <div>© 2026 HausKI • Günther Hochreiter</div>
-      <div>Blogseite • LinkedIn Tech Stories • g-hochreiter.at</div>
-    </div>
-  </footer>
+<script>
+const d=new Date();
+const options={year:'numeric',month:'long',day:'numeric'};
+document.getElementById('update').innerText=d.toLocaleDateString('de-DE',options);
+</script>
 </body>
 </html>
